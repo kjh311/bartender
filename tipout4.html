@@ -1,0 +1,303 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<link href='https://fonts.googleapis.com/css?family=Oswald:400,700' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=PT+Sans:400,700italic' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Volkhov:400,700italic' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Luckiest+Guy' rel='stylesheet' type='text/css'>
+<title>Tip Out Calc</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+body  {
+ background: black;
+ color: red;
+ margin: 0 auto;
+ text-align: center;
+ font-family: 'Volkhov', serif;
+ border: solid red 5px;
+ display: inline-block;
+ font-family: 'Luckiest Guy', cursive;
+}
+#top  {
+ border: solid red 5px;
+ border-left: 0px;
+ border-right: 0px;
+ border-top: 0px;
+}
+#pagename {
+ margin: 0px;
+ font-family: 'Volkhov', serif;
+}
+form  {
+ margin: 5px;
+ font-size: 20px;
+}
+.bar  {
+ padding: 5px;
+ margin: 5px
+}
+#bar1 {
+ max-width: 50px;
+ margin-left: 9px;
+ font-size: 20px;
+ height: 30px;
+ margin-top: 0;
+ text-align: right;
+ text-align: center;
+ color: red;
+ font-family: 'Luckiest Guy', cursive;
+}
+#bar2 {
+ max-width: 50px;
+ text-align: right;
+ font-size: 20px;
+ height: 30px;
+ text-align: center;
+ color: red;
+ font-family: 'Luckiest Guy', cursive;
+}
+#bar3 {
+ max-width: 50px;
+ text-align: center;
+ font-size: 20px;
+ font-size: 20px;
+ height: 30px;
+ color: red;
+ font-family: 'Luckiest Guy', cursive;
+}
+#bar4 {
+ max-width: 50px;
+ text-align: center;
+ font-size: 20px;
+ height: 30px;
+ color: red;
+ font-family: 'Luckiest Guy', cursive;
+}
+#pot {
+ max-width: 130px;
+ padding: 10px;
+ border: solid red 5px;
+ text-align: center;
+ height: 40px;
+ font-size: 30px;
+ margin-top: 10px;
+ color: red;
+  font-family: 'Luckiest Guy', cursive;
+}
+
+#decimal  {
+ margin-top: -5px;
+ font-size: 15px;
+ line-height: 1;
+}
+bottomform  {
+ display: inline;
+}
+
+#results  {
+ line-height: 1.7;
+ font-size: 20px;
+}
+
+#money1 {
+ border: solid #9900CC 5px;
+ max-width: 80px;
+ margin: 0 auto;
+
+}
+
+#money2 {
+ border: solid green 5px;
+
+ margin: 0 auto
+
+}
+
+#money3 {
+ border: solid orange 5px;
+
+ margin: 0 auto
+}
+
+#money4 {
+ border: solid orange 5px;
+
+ margin: 0 auto
+}
+
+#text1  {
+ color: aqua;
+ margin-left: -1px;
+ font-size: 18px;
+}
+
+#text2  {
+ color: fuchsia;
+ font-size: 18px;
+}
+
+#text3  {
+ color: orange;
+ font-size: 18px;
+}
+
+#text4  {
+ color: lime;
+ font-size: 18px;
+}
+
+#btn  {
+ line-height: 2;
+ padding: 5px;
+ font-size: 20px;
+ font-family: 'Luckiest Guy', cursive;;
+ color: red;
+ margin-top: 0px;
+}
+
+#welcome1 {
+ font-size: 23px;
+ margin-right: 5px;
+ color: aqua;
+}
+
+#welcome2 {
+ font-size: 23px;
+ color: fuchsia;
+ margin-right: 5px;
+}
+
+#welcome3 {
+ font-size: 23px;
+ color: orange;
+}
+
+#welcome4 {
+ font-size: 23px;
+ color: lime;
+}
+#welcomepot {
+ background: red;
+ color: black;
+}
+#welcomemoney {
+ background: yellow;
+}
+#second {
+padding: 5px;
+}
+#third  {
+ margin-bottom: 0
+}
+#last {
+ display: inline-block;
+ padding: 10px;
+}
+#table  {
+ text-align: center;
+ margin: 0 auto;
+ width: 80%;
+}
+</style>
+</head>
+<body onload="calculate()">
+
+
+<div id="second">
+<form>
+Enter the amount of money in the TIP JAR (no $ sign)  :
+<input type="text" id="pot"/>
+</form>
+</div>
+
+<p id="decimal">Enter hours in decimal format<br>
+(3 hours 30 minutes = 3.5)</p>
+
+<div id="third">
+
+<form id="text1">
+Bartender #1 Hours:
+<input type="text" id="bar1"/>
+</form>
+
+<form id="text2" ACTION="" METHOD="GET">
+Bartender #2 Hours:
+<input type="text" id="bar2" class="bar"><br></form>
+
+<form id="text3" ACTION="" METHOD="GET">
+Bartender #3 Hours:
+<input type="text" id="bar3" class="bar"><br></form>
+
+<form id="text4" ACTION="" METHOD="GET">
+Bartender #4 Hours:
+<input type="text" id="bar4" class="bar"><br></form>
+
+
+</div>
+
+<table style="width:90%" id="table">
+  <tr>
+    <td><p id="welcome1"></p></td>
+    <td><p id="welcome2"></p></td>
+    <td><p id="welcome3"></p></td>
+    <td><p id="welcome4"></p></td>
+  </tr>
+</table>
+
+
+<div id="last">
+<input type="button" id="btn" value="SHOW ME THE TIPOUT!" onclick="calculate();"/>
+</div>
+
+
+
+
+</body>
+
+<script>
+
+//alert("working");
+
+var calculate = function() {
+ var welcome1 = document.getElementById('welcome1');
+ var welcome2 = document.getElementById('welcome2');
+ var welcome3 = document.getElementById('welcome3');
+ var bar1 = document.getElementById('bar1');
+ var bar2 = document.getElementById('bar2');
+ var bar3 = document.getElementById('bar3');
+ var bar4 = document.getElementById('bar4');
+ var pot = document.getElementById('pot');
+ var totalhr = document.getElementById('welcomehr');
+ var totalhr = parseFloat(bar1.value) + parseFloat(bar2.value) + parseFloat(bar3.value) + parseFloat(bar4.value);
+ var moneyperhour = parseFloat(pot.value) / totalhr;
+ var btn = document.getElementById('btn');
+ var moneyper = moneyperhour;
+ var money1 = bar1.value * moneyper;
+ money1 = money1.toFixed(2);
+ var money2 = bar2.value * moneyper;
+ money2 = money2.toFixed(2);
+ var money3 = bar3.value * moneyper;
+ money3 = money3.toFixed(2);
+ var money4 = bar4.value * moneyper;
+ money4 = money4.toFixed(2);
+
+
+
+welcome1.innerHTML = "$" + money1;
+welcome2.innerHTML =  "$" + money2;
+welcome3.innerHTML = "$" + money3;
+welcome4.innerHTML = "$" + money4;
+welcomehr.innerHTML = "Total Hours: " + totalhr;
+welcomepot.innerHTML = "$ POT " + pot.value;
+welcomemoney.innerHTML = "$ per hour " + moneyperhour;
+}
+
+/*
+.toFixed(2) should be on welcome1,2,3 not moneyper
+certer pot text
+*/
+
+</script>
+</html>
+
