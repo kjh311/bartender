@@ -1,0 +1,14 @@
+CACHE MANIFEST
+#v1
+
+CACHE:
+index.html
+tipout2.html
+tipout3.html
+tipout4.html
+
+NETWORK:
+*
+
+FALLBACK:
+/ /offline.html
